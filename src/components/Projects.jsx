@@ -17,21 +17,27 @@ const HorizontalScrollCards = () => {
       description: "A basic Rock Paper Scissors game developed using React.js, featuring an intuitive user interface where players can choose between rock, paper, or scissors.",
       img: game,
     },
+    {
+      id: 2,
+      title: "Landing Page",
+      description: "A responsive landing page built with React.js and styled using Tailwind CSS, ensuring compatibility across all devices, including mobile, tablet, and desktop.",
+      img: game,
+    },
   ];
 
   return (
-    <div className="w-full  overflow-x-auto cursor-default  py-3 shadow-lg rounded-md">
-      <div className="flex gap-1 px-1">
+    <div className="overflow-y-auto w-full   lg:w-[300px]  lg:h-[600px] overflow-x-auto cursor-default py-5  shadow-lg rounded-md">
+      <div className=" px-1 flex lg:flex-col gap-1 w-full ">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="bg-[#ffffff] shadow-lg border   rounded-lg w-60 p-4 flex-shrink-0 hover:shadow-lg transition-shadow"
+            className="bg-[#ffffff] shadow-lg border h-[300px]  lg:mx-auto text-sm  rounded-lg w-60 p-4 flex-shrink-0 hover:shadow-lg transition-shadow"
           >
             <div className="h-[50%] ">
               <img className="object-cover h-full " src={card.img} alt="" />
             </div>
-            <h3 className="text-lg font-bold text-gray-800 ">{card.title}</h3>
-            <p className="text-gray-600">{card.description}</p>
+            <h3 className="text-xl font-bold text-gray-800 ">{card.title}</h3>
+            <p className="text-gray-600 text-sm">{card.description}</p>
           </div>
         ))}
       </div>

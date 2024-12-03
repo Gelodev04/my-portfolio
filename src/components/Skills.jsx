@@ -9,7 +9,7 @@ import npm from './images/npm.png';
 import tailwind from './images/Tailwind CSS.png';
 import git from './images/git.png';
 import typescript from './images/typescript.png';
-
+import 'animate.css';
 
 function Skills() {
   const skills = [
@@ -19,7 +19,7 @@ function Skills() {
     { name: 'Bootstrap', icon: bootstrap },
     { name: 'Tailwind', icon: tailwind },
     { name: 'ReactJS', icon: reacticon },
-    { name: 'TypeScript', icon: typescript }, // Replace with a TypeScript icon if available
+    { name: 'TypeScript', icon: typescript },
     { name: 'Git', icon: git },
     { name: 'NPM', icon: npm },
     { name: 'GitHub', icon: github },
@@ -27,9 +27,15 @@ function Skills() {
 
   return (
     <div className="text-end">
-      <ul className="flex flex-col gap-3 ">
+      <ul className="flex flex-col gap-3">
         {skills.map((skill, index) => (
-          <li key={index} className="flex items-center gap-3 justify-end ">
+          <li
+            key={index}
+            className={`flex items-center gap-3 justify-end animate__animated animate__fadeInRight`}
+            style={{
+              animationDelay: `${index * 0.1}s`, 
+            }}
+          >
             <span>{skill.name}</span>
             <img src={skill.icon} alt={skill.name} className="w-5 h-5" />
           </li>

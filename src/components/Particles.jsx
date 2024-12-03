@@ -51,7 +51,7 @@ const ParticlesGroup = () => {
                   quantity: 4,
                 },
                 repulse: {
-                  distance: 150,
+                  distance: 200,
                   duration: 0.4,
                 },
               },
