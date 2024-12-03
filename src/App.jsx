@@ -23,7 +23,9 @@ function App() {
         }}
       >
         {/* Me section */}
+      
         <ParticlesGroup/>
+        
         <div >
         
           <section className=" pt-[30px]">

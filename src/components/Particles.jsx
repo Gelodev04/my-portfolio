@@ -30,14 +30,14 @@ const ParticlesGroup = () => {
           options={{
             background: {
               color: {
-                value: "#0d47a1",
+                value: "",
               },
             },
             fpsLimit: 120,
             interactivity: {
               events: {
                 onClick: {
-                  enable: true,
+                  enable: false,
                   mode: "push",
                 },
                 onHover: {
@@ -51,20 +51,20 @@ const ParticlesGroup = () => {
                   quantity: 4,
                 },
                 repulse: {
-                  distance: 200,
+                  distance: 150,
                   duration: 0.4,
                 },
               },
             },
             particles: {
               color: {
-                value: "#ffffff",
+                value: "#000",
               },
               links: {
-                color: "#ffffff",
+                color: "#000",
                 distance: 150,
                 enable: true,
-                opacity: 0.5,
+                opacity: 0.4,
                 width: 1,
               },
               move: {
@@ -74,7 +74,7 @@ const ParticlesGroup = () => {
                   default: "bounce",
                 },
                 random: false,
-                speed: 6,
+                speed: 1.1,
                 straight: false,
               },
               number: {
@@ -88,7 +88,7 @@ const ParticlesGroup = () => {
                 value: 0.5,
               },
               shape: {
-                type: "circle",
+                type: "triangle",
               },
               size: {
                 value: { min: 1, max: 5 },
