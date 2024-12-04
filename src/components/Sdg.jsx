@@ -1,24 +1,24 @@
 import React from "react";
 import icon from "./images/goodhealth.png";
-import "./App.css";
+
 import background from "./images/backgroundsdg.jpeg";
 import sdgicon from "./images/sdgicon.png";
 
 function Sdg() {
   return (
     <>
-      <div className="py-">
+      <div className="">
         <div
           className="page-heading__panel rounded-lg max-w-[950px] mx-auto"
           style={{
             backgroundImage: `url(${background})`,
-            backgroundSize: 'cover', // Ensures the image covers the container
-            backgroundPosition: 'center', // Centers the image
-            backgroundRepeat: 'no-repeat', // Prevents the image from repeating
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center', 
+            backgroundRepeat: 'no-repeat', 
             position: 'relative',
           }}
         >
-          {/* Semi-transparent overlay */}
+         
           <div className="rounded-lg "
             style={{
               position: 'absolute',
@@ -51,7 +51,7 @@ function Sdg() {
           </div>
         </div>
 
-        <div className="text-left p-6 rounded-lg  bg-opacity-90 max-w-[850px] mx-auto ">
+        <div className="text-left p-1 rounded-lg  bg-opacity-90 max-w-[850px] mx-auto dark:text-gray-300">
           <h2 className="text-xl lg:text-2xl font-bold mb-4 text-green-600">
             Good Health and Well-Being
           </h2>
@@ -94,7 +94,7 @@ function Sdg() {
             around the world. By aligning my work with this SDG, I aim to make a
             meaningful impact on society through technology.
           </p>
-          <p className="text-green-500 font-semibold text-center italic text-sm">
+          <p className="text-green-500 font-semibold text-center italic text-sm mb-5">
             Together, through innovation and commitment, we can make good health
             and well-being a reality for everyone.
           </p>

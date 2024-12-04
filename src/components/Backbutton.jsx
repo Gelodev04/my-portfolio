@@ -6,7 +6,7 @@ const Button = ({ handleBackToHome }) => {
     <StyledWrapper className='py-5'>
       <button className="button" data-text="Awesome" onClick={handleBackToHome}>
         <span className="actual-text">&nbsp;Profile&nbsp;</span>
-        <span aria-hidden="true" className="hover-text">&nbsp;Profile&nbsp;</span>
+        <span aria-hidden="true" className="hover-text ">&nbsp;Profile&nbsp;</span>
       </button>
     </StyledWrapper>
   );

@@ -26,18 +26,18 @@ const HorizontalScrollCards = () => {
   ];
 
   return (
-    <div className="overflow-y-auto w-full   lg:w-[300px]  lg:h-[600px] overflow-x-auto cursor-default py-5  shadow-lg rounded-md">
+    <div className="overflow-y-auto w-full    lg:w-[300px]  lg:h-[600px] overflow-x-auto cursor-default py-5  shadow-lg rounded-md">
       <div className=" px-1 flex lg:flex-col gap-1 w-full ">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="bg-[#ffffff] shadow-lg border h-[300px]  lg:mx-auto text-sm  rounded-lg w-60 p-4 flex-shrink-0 hover:shadow-lg transition-shadow"
+            className="bg-[#ffffff] dark:bg-[#282828] shadow-lg  h-[300px]  lg:mx-auto text-sm  rounded-lg w-60 p-4 flex-shrink-0 hover:shadow-lg transition-shadow"
           >
             <div className="h-[50%] ">
-              <img className="object-cover h-full " src={card.img} alt="" />
+              <img className="object-cover h-full rounded-md " src={card.img} alt="" />
             </div>
-            <h3 className="text-xl font-bold text-gray-800 ">{card.title}</h3>
-            <p className="text-gray-600 text-sm">{card.description}</p>
+            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 ">{card.title}</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">{card.description}</p>
           </div>
         ))}
       </div>

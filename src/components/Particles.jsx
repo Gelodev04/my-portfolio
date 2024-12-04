@@ -58,10 +58,10 @@ const ParticlesGroup = () => {
             },
             particles: {
               color: {
-                value: "#000",
+                value: "#16a34a",
               },
               links: {
-                color: "#000",
+                color: "#16a34a",
                 distance: 150,
                 enable: true,
                 opacity: 0.4,
