@@ -13,26 +13,32 @@ import Button from "./components/Backbutton";
 import { useEffect } from "react";
 import darkmodebg from "./assets/darkmode.png";
 import githubdark from "./assets/githubdark.png";
-import Checkbox from "./components/Checkbox";
+import DarkModeCheckbox from "./components/DarkmodeCheck";
+import LightModeCheckbox from "./components/LightmodeCheck";
 
 function App() {
   const [activeSection, setActiveSection] = useState("about");
   const [sdgSection, setSdgSection] = useState(false);
   const [fadeExit, setFadeExit] = useState(false);
   const [fadeSdgExit, setFadeSdgExit] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setIsDarkMode(savedDarkMode);
+    // Set the flag to true after the first render
+    const timer = setTimeout(() => {
+      setIsInitialized(true);
+    }, 0);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(prevState => {
-      const newState = !prevState;
-      localStorage.setItem('darkMode', newState);  // Save dark mode preference to localStorage
-      return newState;
-    });
+  const handleDarkModeChange = () => {
+    setIsDarkMode(false); // Enable Dark Mode
+  };
+
+  const handleLightModeChange = () => {
+    setIsDarkMode(true); // Enable Light Mode
   };
 
   const handleSdgClick = () => {
@@ -56,9 +62,28 @@ function App() {
 
   return (
     <>
-    <div className={`min-h-screen transition-all  ${!isDarkMode ? 'dark' : ''} `}>
+    <div className={`relative ${!isDarkMode ? 'dark' : ''} bg-transition`}>
+   <div className={`fixed flex ${sdgSection ? "hidden" : "block"}  -rotate-90 bottom-[6rem] gap-2 -left-[4.4rem]`}>
+    <div className={`animate__animated ${
+              fadeExit ? "animate__fadeOutUp" : "animate__fadeInDown"
+            } flex gap-1 items-center `}>
+      <LightModeCheckbox isChecked={isDarkMode}
+          onChange={handleLightModeChange}/>
+      <p className="dark:text-gray-300 text-xs font-bold">Light Mode</p>
+    </div>
+    <div className={`animate__animated ${
+              fadeExit ? "animate__fadeOutUp" : "animate__fadeInDown"
+            } flex gap-1 items-center`}>
+      <DarkModeCheckbox isChecked={!isDarkMode}
+          onChange={handleDarkModeChange}/>
+      <p className="dark:text-gray-300 text-xs font-bold">Dark Mode</p>
+    </div>
+   </div>
+
+    
+    <div className={`min-h-screen transition-all bg-transition ease-in-out duration-300  ${!isDarkMode ? 'dark' : ''} `}>
       <main
-        className={` min-h-screen cursor-default overflow-hidden object-cover text-[#333333]   ${
+        className={` min-h-screen cursor-default transition-all duration-700 ease-in-out overflow-hidden object-cover text-[#333333]   ${
           activeSection === "skills" ? "" : ""
         }`}
         style={{
@@ -67,12 +92,7 @@ function App() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute bottom-16 left-0 transform -rotate-90 ml-2 ">
-          <div className="flex items-center flex-row-reverse gap-2 text-sm">
-            <p className="dark:text-gray-200 font-semibold text-sm">{!isDarkMode ? "Light Mode" : "Dark Mode"}</p>
-            <Checkbox isChecked={isDarkMode} onChange={toggleDarkMode}/>
-          </div>
-        </div>
+        
         <ParticlesGroup />
         {/* Me section */}
         <div
@@ -117,7 +137,7 @@ function App() {
                   <img src={linkedin} alt="" />
                 </li>
                 <li className="w-[21px] lg:w-[26px]  cursor-pointer">
-                  <img src={githubdark} alt="" />
+                  <img src={!isDarkMode ? githubdark : githublight} alt="" />
                 </li>
                 <li className="w-[21px] lg:w-[26px] cursor-pointer">
                   <img src={gmail} alt="" />
@@ -247,6 +267,7 @@ function App() {
           <Sdg />
         </section>
       </main>
+      </div>
       </div>
     </>
   );

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Checkbox = ({isChecked, onChange}) => {
+const LightModeCheckbox = ({isChecked, onChange}) => {
   return (
     <StyledWrapper>
       <div className="content">
         <label className="checkBox">
-          <input id="ch1" type="checkbox"
+          <input  type="checkbox"
           onChange={onChange}
           checked={isChecked}
           />
@@ -60,4 +60,4 @@ const StyledWrapper = styled.div`
     transition: 300ms ease;
   }`;
 
-export default Checkbox;
+export default LightModeCheckbox;
