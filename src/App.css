@@ -11,22 +11,8 @@
   transition: background-image 0.2s ease, background-color 0.2s ease;
 }
 
-/* App.css */
-.bg-layer {
-  position: absolute;
-  inset: 0; /* Covers the entire parent container */
-  transition: opacity 0.6s ease; /* Smooth fade-in/out */
-  background-size: cover;
-  background-position: center;
-}
 
-.bg-light {
-  background-image: url('/path-to-light-image.png'); /* Replace with your light mode image */
-}
 
-.bg-dark {
-  background-image: url('/path-to-dark-image.png'); /* Replace with your dark mode image */
-}
 
 
 
