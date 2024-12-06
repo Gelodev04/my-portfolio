@@ -28,7 +28,7 @@ const StyledWrapper = styled.div`
     --border-right: 6px;
     --text-stroke-color: rgba(255,255,255,0.6);
     --animation-color: #22c55e;
-    --fs-size: 2em;
+    --fs-size: 1.6em;
     letter-spacing: 3px;
     text-decoration: none;
     font-size: var(--fs-size);
