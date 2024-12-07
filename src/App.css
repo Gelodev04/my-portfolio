@@ -6,7 +6,7 @@
   margin: 0;
   transition: background-color 0.15s ease, color 0.15s ease;
 }
-/* App.css */
+
 .bg-transition {
   transition: background-image 0.2s ease, background-color 0.2s ease;
 }
@@ -46,7 +46,7 @@
 
 .loading svg polyline {
   fill: none;
-  stroke-width: 2.25; /* Slightly larger than the small size */
+  stroke-width: 2.25; 
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -59,8 +59,8 @@
 .loading svg polyline#front {
   fill: none;
   stroke: #00ff11;
-  stroke-dasharray: 36, 108; /* Adjusted for medium size */
-  stroke-dashoffset: 144; /* Adjusted for medium size */
+  stroke-dasharray: 36, 108; 
+  stroke-dashoffset: 144; 
   animation: dash_682 1.4s linear infinite;
 }
 

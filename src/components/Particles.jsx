@@ -5,24 +5,24 @@ import { loadSlim } from "@tsparticles/slim"; // Load slim particles engine
 const ParticlesGroup = () => {
   const [init, setInit] = useState(false);
 
-  // this should be run only once per application lifetime
+
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       // Load slim particles engine
       await loadSlim(engine);
     }).then(() => {
-      setInit(true); // Once particles are initialized, set init to true
+      setInit(true); 
     });
-  }, []); // empty dependency array to run this only once
+  }, []); 
 
-  // Callback for when particles are loaded
+
   const particlesLoaded = (container) => {
-    console.log(container); // Can log or inspect the container if needed
+    console.log(container); 
   };
 
   return (
     <div>
-      {/* Ensure the particles component renders only when `init` is true */}
+     
       {init && (
         <Particles
           id="tsparticles"
