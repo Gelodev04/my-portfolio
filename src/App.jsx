@@ -271,7 +271,7 @@ function App() {
 
                     {/* Projects */}
                     {activeSection === "projects" && (
-                      <div className="animate__animated lg:pt-[5rem] lg:animate__fadeInRight">
+                      <div className="animate__animated lg:pt-[5rem] animate__fadeInRight">
                         <div className="">
                           <HorizontalScrollCards />
                         </div>
