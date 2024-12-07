@@ -23,6 +23,7 @@ Responsive Design: Works seamlessly on all devices, including desktops, tablets,
 Projects Showcase: Displays my key projects with live links and descriptions.
 Contact Form: Allows users to send me a message directly through the site.
 Interactive Elements: Includes smooth scrolling, animations, or hover effects.
+Light mode/Dark Mode: Includes a theme that can be changes based on the user preference.
 
 
 I’d love to hear your feedback on this portfolio! Thank you for visiting. 💻✨
