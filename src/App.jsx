@@ -115,7 +115,7 @@ function App() {
                 sdgSection ? "hidden" : "block"
               }`}
             >
-              <div className="flex flex-col gap-12 lg:min-h-screen lg:flex-row justify-between">
+              <div className="flex flex-col gap-12  lg:flex-row justify-between">
                 <div
                   className={`lg:pt-[50px] w-full animate__animated ${
                       fadeExit
@@ -123,8 +123,8 @@ function App() {
                       : "animate__fadeIn"
                   }`}
                 >
-                  <section className=" pt-[15px]">
-                    <div className="flex items-center   gap-1">
+                  <section className=" pt-[15px] ">
+                    <div className="flex items-center    gap-1">
                       <div>
                         <h1 className=" text-4xl dark:text-gray-300 my-name text-gray-800 font-semibold lg:text-5xl">
                           Angelo Manalo
@@ -239,14 +239,14 @@ function App() {
 
                 {/* content section */}
                 <div
-                  className={`flex items-center  w-full  animate__animated ${sdgSection ? fadeSdgExit ? "animate_fadeOut" : "animate_fadeIn" : 
+                  className={`flex items-center   w-full  animate__animated ${sdgSection ? fadeSdgExit ? "animate_fadeOut" : "animate_fadeIn" : 
                     fadeExit ? "animate__fadeOutRight" : "animate__fadeInRight"
                   }`}
                 >
                   {/* About Me */}
                   <section className="w-[280px] ml-auto  text-[0.8rem] lg:text-[1rem]">
                     {activeSection === "about" && (
-                      <div className="flex flex-col lg:gap-0 gap-3 dark:text-gray-200   animate__animated animate__fadeInRight ">
+                      <div className="flex flex-col lg:pt-[11rem] lg:gap-0 gap-3 dark:text-gray-200   animate__animated animate__fadeInRight ">
                         <p>
                           Hello! I’m Angelo, a passionate web developer with a
                           focus on creating responsive, user-friendly, and
@@ -271,7 +271,7 @@ function App() {
 
                     {/* Projects */}
                     {activeSection === "projects" && (
-                      <div className="animate__animated animate__fadeInRight">
+                      <div className="animate__animated lg:pt-[5rem] lg:animate__fadeInRight">
                         <div className="">
                           <HorizontalScrollCards />
                         </div>
@@ -280,7 +280,7 @@ function App() {
 
                     {/* Technical Skills */}
                     {activeSection === "skills" && (
-                      <div className="">
+                      <div className="lg:pt-[11rem]">
                         <Skills />
                       </div>
                     )}
