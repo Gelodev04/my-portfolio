@@ -63,7 +63,7 @@ function App() {
 
   return (
     <>
-      <div className={`relative ${!isDarkMode ? "dark" : ""} bg-transition`}>
+      <div className={`relative select-none ${!isDarkMode ? "dark" : ""} bg-transition`}>
         <div
           className={`fixed flex ${
             sdgSection ? "hidden" : "block"
