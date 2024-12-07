@@ -5,7 +5,7 @@ This project showcases my skills, projects, and experiences as a web developer. 
 
 
 🚀 Live Preview
-Check out the live site here: "https://Gelodev04.github.io/my-portfolio/"
+Check out the live site here: copy this link in a browser "https://Gelodev04.github.io/my-portfolio/"
 
 
 
