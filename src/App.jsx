@@ -246,7 +246,7 @@ function App() {
                   {/* About Me */}
                   <section className="w-[280px] ml-auto  text-[0.8rem] lg:text-[1rem]">
                     {activeSection === "about" && (
-                      <div className="flex flex-col lg:pt-[11rem] lg:gap-0 gap-3 dark:text-gray-200   animate__animated animate__fadeInRight ">
+                      <div className="flex flex-col lg:pt-[11rem] lg:gap-4 gap-3 dark:text-gray-200   animate__animated animate__fadeInRight ">
                         <p>
                           Hello! I’m Angelo, a passionate web developer with a
                           focus on creating responsive, user-friendly, and
