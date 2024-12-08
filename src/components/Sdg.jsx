@@ -45,7 +45,7 @@ function Sdg() {
             <h1 className="page-heading__heading text-white font-semibold text-2xl lg:text-3xl">
               GOAL 3: GOOD HEALTH AND WELL-BEING
             </h1>
-            <h2 className="page-heading__subheading text-white text-sm lg:text-base">
+            <h2 className="page-heading__subheading italic text-white text-sm lg:text-base">
               Ensure healthy lives and promote well-being for all at all ages
             </h2>
           </div>
@@ -57,7 +57,7 @@ function Sdg() {
           </h2>
           <p className="mb-4 text-sm">
             <img
-              className="float-left w-[130px] h-[120px] object-cover mr-4"
+              className="float-left lg:h-[150px] lg:w-[170px] w-[130px] h-[120px] object-cover "
               src={icon}
               alt="Good Health and Well-Being Icon"
             />

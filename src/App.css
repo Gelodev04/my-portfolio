@@ -1,4 +1,7 @@
-
+@font-face{
+  font-family: "Montral";
+  src: url('./assets/NeueMontreal-Regular.otf') format('opentype');
+}
 
 *, body{
   box-sizing: border-box;
@@ -11,9 +14,21 @@
   transition: background-image 0.2s ease, background-color 0.2s ease;
 }
 
+.animate__fadeOutHalfSecond{
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 0.4s;
+  
+}
 
+.HalfSecond{
+  font-weight: 100;
+  
+}
 
-
+.intro{
+  font-family: "Kanit";
+  font-weight: 300;
+}
 
 
 .main-section{
@@ -21,7 +36,7 @@
 }
 
 .my-name{
-  font-family: "Bitter", serif;
+  font-family: "Chakra Petch", sans-serif;
 }
 
 .page-heading__panel {

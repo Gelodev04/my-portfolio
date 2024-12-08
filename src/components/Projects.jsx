@@ -36,7 +36,7 @@ const HorizontalScrollCards = () => {
         {cards.map((card) => (
           <a target="_blank" href={card.url}><div
           key={card.id}
-          className="bg-[#ffffff] hover:bg-[#e5e5e5] hover:dark:bg-[#353535] dark:bg-[#282828] shadow-lg h-[290px] lg:mx-auto text-sm rounded-lg w-60 p-4 flex-shrink-0 hover:shadow-lg transition-shadow group"
+          className="bg-[#ffffff] hover:bg-[#e5e5e5] hover:dark:bg-[#353535] dark:bg-[#282828] shadow-lg h-[290px] lg:h-auto lg:mx-auto text-sm rounded-lg lg:w-72 w-60 p-4 flex-shrink-0 hover:shadow-lg transition-shadow group"
         >
           <div className="h-[50%]">
             <img
@@ -45,8 +45,10 @@ const HorizontalScrollCards = () => {
               alt=""
             />
             </div>
-            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 ">{card.title}</h3>
+           
+            <h3 className="text-xl text-center font-bold text-gray-800 dark:text-gray-200 ">{card.title}</h3>
             <p className="text-gray-600 dark:text-gray-300 lg:text-sm text-xs">{card.description}</p>
+            
           </div>
           </a>
         ))}

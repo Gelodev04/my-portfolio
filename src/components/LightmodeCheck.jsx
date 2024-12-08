@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const LightModeCheckbox = ({isChecked, onChange}) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper isChecked={isChecked}>
       <div className="content">
         <label className="checkBox">
           <input  type="checkbox"
@@ -31,13 +31,13 @@ const StyledWrapper = styled.div`
     border-radius: 1px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 0px 0px 2px #fff;
+     box-shadow: 0px 0px 0px 2px ${(props) => (props.isChecked ? '#000' : '#fff')};
   }
 
   .checkBox div {
     width: 60px;
     height: 60px;
-    background-color: #fff;
+    background-color: ${(props) => (props.isChecked ? '#000' : '#fff')};
     top: -52px;
     left: -52px;
     position: absolute;

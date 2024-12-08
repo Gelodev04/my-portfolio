@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const DarkModeCheckbox = ({isChecked, onChange}) => {
   return (
-    <StyledWrapper>
+    <StyledWrapper isChecked={isChecked}>
       <div className="content">
         <label className="checkBox">
           <input  type="checkbox"
@@ -31,13 +31,13 @@ const StyledWrapper = styled.div`
     border-radius: 1px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0px 0px 0px 2px #fff;
+    box-shadow: 0px 0px 0px 2px ${(props) => (props.isChecked ? '#fff' : '#000')};
   }
 
   .checkBox div {
     width: 60px;
     height: 60px;
-    background-color: #fff;
+    background-color: ${(props) => (props.isChecked ? '#fff' : '#000')};
     top: -52px;
     left: -52px;
     position: absolute;

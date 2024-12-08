@@ -24,15 +24,25 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
+  const [fadeOutIntro, setFadeOutIntro] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInitialized(true);
-      setIsFirstLoad(false);
-    }, 0);
+    const fadeOutTimer = setTimeout(() => {
+      setFadeOutIntro(true);
+    }, 1200); 
 
-    return () => clearTimeout(timer);
+    const hideIntroTimer = setTimeout(() => {
+      setShowIntro(false);
+    }, 2200); 
+
+    return () => {
+      clearTimeout(fadeOutTimer);
+      clearTimeout(hideIntroTimer);
+    };
   }, []);
+
+  
 
   const handleDarkModeChange = () => {
     setIsDarkMode(false);
@@ -63,7 +73,16 @@ function App() {
 
   return (
     <>
+    {showIntro ? (
+      <div className="intro min-h-screen z-[9999] flex justify-center items-center text-white bg-black ">
+        <div>
+        <h1 className={`inline-block text-2xl lg:text-3xl ${`animate__animated ${fadeOutIntro ? "animate__fadeOut " : ""}`}`}>Angelo Manalo</h1>
+        <p className={`inline pl-3 HalfSecond lg:pl-4 text-2xl lg:text-3xl ${`animate__animated ${fadeOutIntro ? "animate__fadeOutHalfSecond" : ""}`}`}>Portfolio</p>
+        </div>
+      </div>
+    ) : (
       <div className={`relative select-none ${!isDarkMode ? "dark" : ""} bg-transition`}>
+
         <div
           className={`fixed flex ${
             sdgSection ? "hidden" : "block"
@@ -126,7 +145,7 @@ function App() {
                   <section className=" pt-[15px] ">
                     <div className="flex items-center    gap-1">
                       <div>
-                        <h1 className=" text-4xl dark:text-gray-300 my-name text-gray-800 font-semibold lg:text-5xl">
+                        <h1 className=" text-4xl xl:tracking-widest dark:text-gray-300 my-name text-gray-800 font-semibold lg:text-5xl">
                           Angelo Manalo
                         </h1>
                       </div>
@@ -147,7 +166,7 @@ function App() {
                     <p className="lg:text-lg text-gray-800 dark:text-gray-300">
                       Web Developer
                     </p>
-                    <p className="text-green-600 lg:text-lg">
+                    <p className="text-green-600 italic lg:text-lg">
                       Good Health and Well-Being
                     </p>
                     <ul className="flex gap-3 items-center">
@@ -188,7 +207,7 @@ function App() {
                         >
                           About Me
                           <div
-                            className={`absolute rounded-xl bottom-0 left-0 w-0 h-[2px] dark:bg-[#e7e6e6] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute rounded-3xl bottom-0 left-0 w-0 h-[2px] dark:bg-[#e7e6e6] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
                               activeSection === "about" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -201,7 +220,7 @@ function App() {
                         >
                           Projects
                           <div
-                            className={`absolute dark:bg-[#e7e6e6] bottom-0 left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute rounded-3xl dark:bg-[#e7e6e6] bottom-0 left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
                               activeSection === "projects" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -214,7 +233,7 @@ function App() {
                         >
                           Technical Skills
                           <div
-                            className={`absolute bottom-0 dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute bottom-0 rounded-3xl dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
                               activeSection === "skills" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -227,7 +246,7 @@ function App() {
                         >
                           SDG
                           <div
-                            className={`absolute bottom-0 dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute bottom-0 rounded-3xl dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
                               activeSection === "sdg" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -246,7 +265,7 @@ function App() {
                   {/* About Me */}
                   <section className="w-[280px] ml-auto  text-[0.8rem] lg:text-[1rem]">
                     {activeSection === "about" && (
-                      <div className="flex flex-col lg:pt-[11rem] lg:gap-4 gap-3 dark:text-gray-200   animate__animated animate__fadeInRight ">
+                      <div className="flex flex-col lg:pt-[10rem] lg:gap-4 gap-3 dark:text-gray-200   animate__animated animate__fadeInRight ">
                         <p>
                           Hello! I’m Angelo, a passionate web developer with a
                           focus on creating responsive, user-friendly, and
@@ -271,7 +290,7 @@ function App() {
 
                     {/* Projects */}
                     {activeSection === "projects" && (
-                      <div className="animate__animated lg:pt-[5rem] animate__fadeInRight">
+                      <div className="animate__animated lg:pt-[5rem] lg:-ml-[50px] animate__fadeInRight">
                         <div className="">
                           <HorizontalScrollCards />
                         </div>
@@ -303,6 +322,7 @@ function App() {
           </main>
         </div>
       </div>
+    )}
     </>
   );
 }
