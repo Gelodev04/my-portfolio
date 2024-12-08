@@ -21,7 +21,7 @@ const ParticlesGroup = () => {
   };
 
   return (
-    <div>
+    <div className="">
      
       {init && (
         <Particles

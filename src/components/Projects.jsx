@@ -46,7 +46,7 @@ const HorizontalScrollCards = () => {
             />
             </div>
            
-            <h3 className="text-xl text-center font-bold text-gray-800 dark:text-gray-200 ">{card.title}</h3>
+            <h3 className="text-xl text-center font-medium text-gray-800 dark:text-gray-200 ">{card.title}</h3>
             <p className="text-gray-600 dark:text-gray-300 lg:text-sm text-xs">{card.description}</p>
             
           </div>
