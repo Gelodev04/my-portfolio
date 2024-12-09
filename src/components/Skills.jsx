@@ -27,7 +27,7 @@ function Skills() {
 
   return (
     <div className="text-end ">
-      <ul className="flex flex-col gap-3 ">
+      <ul className="flex flex-col gap-[0.65rem] ">
         {skills.map((skill, index) => (
           <li
             key={index}

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Button = ({ handleBackToHome }) => {
   return (
-    <StyledWrapper className='py-5'>
+    <StyledWrapper className='py-5' >
       <button className="button" data-text="Awesome" onClick={handleBackToHome}>
         <span className="actual-text">&nbsp;Profile&nbsp;</span>
         <span aria-hidden="true" className="hover-text ">&nbsp;Profile&nbsp;</span>
