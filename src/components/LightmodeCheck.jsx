@@ -4,13 +4,13 @@ import styled from 'styled-components';
 const LightModeCheckbox = ({isChecked, onChange}) => {
   return (
     <StyledWrapper isChecked={isChecked}>
-      <div className="content">
+      <div className="content ">
         <label className="checkBox">
           <input  type="checkbox"
           onChange={onChange}
           checked={isChecked}
           />
-          <div className="transition" />
+          <div className="transition  " />
         </label>
       </div>
     </StyledWrapper>

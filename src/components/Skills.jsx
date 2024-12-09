@@ -26,12 +26,12 @@ function Skills() {
   ];
 
   return (
-    <div className="text-end">
-      <ul className="flex flex-col gap-3">
+    <div className="text-end ">
+      <ul className="flex flex-col gap-3 ">
         {skills.map((skill, index) => (
           <li
             key={index}
-            className={`flex items-center dark:text-gray-200 gap-3 justify-end animate__animated animate__fadeIn`}
+            className={`flex transition-all ease-out duration-700 items-center dark:text-gray-200 gap-3 justify-end animate__animated animate__fadeIn`}
             style={{
               animationDelay: `${index * 0.1}s`, 
             }}

@@ -24,14 +24,26 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOutIntro, setFadeOutIntro] = useState(false);
+  const [gradientPosition, setGradientPosition] = useState({ x: 50, y: 50 });
+
+  const handleMouseMove = (event) => {
+    const { clientX, clientY, currentTarget } = event;
+    const { width, height, left, top } = currentTarget.getBoundingClientRect();
+
+    
+    const xPercent = ((clientX - left) / width) * 100;
+    const yPercent = ((clientY - top) / height) * 100;
+
+    setGradientPosition({ x: xPercent, y: yPercent });
+  };
 
   const changeSectionWithDelay = (newSection) => {
-    setFadeExit(true); // Start the fade-out animation for the current section
+    setFadeExit(true); 
 
     setTimeout(() => {
-      setActiveSection(newSection); // After the delay, update the section
-      setFadeExit(false); // Stop the fade-out animation
-    }, 300); // Adjust the time (500ms here) for how long you want the fade-out to last
+      setActiveSection(newSection);
+      setFadeExit(false); 
+    }, 300); 
   };
 
   useEffect(() => {
@@ -76,7 +88,7 @@ function App() {
       setFadeSdgExit(false);
       setSdgSection(false);
       setActiveSection("about");
-    }, 300);
+    }, 400);
   };
 
   return (
@@ -86,7 +98,7 @@ function App() {
     {showIntro ? (
       <div className="intro min-h-screen z-[9999] flex justify-center items-center text-white bg-black ">
         <div>
-        <h1 className={`inline-block text-2xl lg:text-3xl ${`animate__animated ${fadeOutIntro ? "animate__fadeOut " : ""}`}`}>Angelo Manalo</h1>
+        <h1 className={`inline-block  text-2xl lg:text-3xl ${`animate__animated ${fadeOutIntro ? "animate__fadeOut " : ""}`}`}>Angelo Manalo</h1>
         <p className={`inline pl-3 HalfSecond lg:pl-4 text-2xl lg:text-3xl ${`animate__animated ${fadeOutIntro ? "animate__fadeOutHalfSecond" : ""}`}`}>Portfolio</p>
         </div>
       </div>
@@ -94,15 +106,22 @@ function App() {
       
       
       
-      <div className={`relative select-none ${!isDarkMode ? "dark" : ""} bg-transition`}>
+      <div className={`relative transition-all ease-out duration-700  select-none ${!isDarkMode ? "dark" : ""} `}
+      onMouseMove={handleMouseMove}
+            style={{
+              background: `radial-gradient(circle at ${gradientPosition.x}% ${gradientPosition.y}%, ${!isDarkMode ? `#383838 2%, #171717 40%` : `#C7C7C7 2%, #E8E8E8 40%`})`,
+              transition: "background 10s ease-out",
+
+            
+            }}>
       
         <div
-          className={`fixed flex ${
+          className={`fixed flex   ${
             sdgSection ? "hidden" : "block"
           }  -rotate-90 bottom-[6rem] gap-2 -left-[4.2rem]`}
         >
           <div
-            className={`animate__animated ${
+            className={`animate__animated  ${
               fadeSdgExit ? "animate__fadeOut" : "animate__fadeIn"
             } flex gap-1 items-center `}
           >
@@ -110,7 +129,7 @@ function App() {
               isChecked={isDarkMode}
               onChange={handleLightModeChange}
             />
-            <p className="dark:text-gray-300 text-xs font-bold">Light Mode</p>
+            <p className="dark:text-gray-300 transition-all ease-out duration-700    text-xs font-bold">Light Mode</p>
           </div>
           <div
             className={`animate__animated ${
@@ -121,34 +140,30 @@ function App() {
               isChecked={!isDarkMode}
               onChange={handleDarkModeChange}
             />
-            <p className="dark:text-gray-300 text-xs font-bold">Dark Mode</p>
+            <p className="dark:text-gray-300 transition-all ease-out duration-700   text-xs font-bold">Dark Mode</p>
           </div>
         </div>
 
         <div
-          className={`min-h-screen transition-all bg-transition ease-in-out duration-300  ${
+          className={`min-h-screen   ${
             !isDarkMode ? "dark" : ""
           } `}
         >
           
           <main
-            className={` min-h-screen cursor-default transition-all duration-700 ease-in-out overflow-hidden object-cover text-[#333333]   ${
+            className={` min-h-screen cursor-default  overflow-hidden object-cover text-[#333333]   ${
               activeSection === "skills" ? "" : ""
             }`}
-            style={{
-              backgroundImage: `url(${!isDarkMode ? darkmodebg : lightmodebg})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+            
           >
             
             {/* Me section */}
             <div
-              className={`py-10  min-h-screen main-section  px-[20px]   md:px-[50px]    lg:px-[100px]    ${
+              className={`py-10   min-h-screen main-section  px-[20px]   md:px-[50px]    lg:px-[100px]    ${
                 sdgSection ? "hidden" : "block"
               }`}
             >
-              <div className="flex flex-col gap-12  lg:flex-row justify-between">
+              <div className="flex  flex-col gap-12  lg:flex-row justify-between">
                 <div
                   className={`lg:pt-[50px] w-full animate__animated ${
                       fadeSdgExit
@@ -157,9 +172,9 @@ function App() {
                   }`}
                 >
                   <section className=" pt-[15px] ">
-                    <div className="flex items-center   gap-1">
+                    <div className="flex items-center    gap-1">
                       <div>
-                        <h1 className=" text-4xl xl:tracking-widest dark:text-gray-300 my-name text-gray-800 font-semibold lg:text-5xl">
+                        <h1 className="transition-all ease-out duration-700  text-4xl xl:tracking-widest dark:text-gray-300 my-name text-gray-800 font-semibold lg:text-5xl">
                           Angelo Manalo
                         </h1>
                       </div>
@@ -177,7 +192,7 @@ function App() {
                       </div>
                     </div>
 
-                    <p className="lg:text-lg text-gray-800 dark:text-gray-300 font-extralight">
+                    <p className="transition-all ease-out duration-700 lg:text-lg text-gray-800 dark:text-gray-300 font-extralight">
                       Web Developer
                     </p>
                     <p className="text-green-600 italic lg:text-lg">
@@ -192,9 +207,10 @@ function App() {
                           <img src={linkedin} alt="linkedinicon" />
                         </a>
                       </li>
-                      <li className="w-[21px] lg:w-[26px]  cursor-pointer">
+                      <li className="w-[21px]  lg:w-[26px]  cursor-pointer">
                         <a target="_blank" href="https://github.com/Gelodev04">
                           <img
+                          className="transition-all ease-out duration-700"
                             src={!isDarkMode ? githubdark : githublight}
                             alt="githubicon"
                           />
@@ -212,8 +228,8 @@ function App() {
                   </section>
 
                   {/* Nav section */}
-                  <section className="pt-[50px]  text-lg font-medium">
-                    <ul className="flex flex-col gap-3 text-[#333333] dark:text-gray-200">
+                  <section className="pt-[50px]   text-lg font-medium">
+                    <ul className="flex flex-col transition-all ease-out duration-700 gap-3 text-[#333333] dark:text-gray-200">
                       <div>
                         <li
                           className="cursor-pointer relative group inline-block lg:text-2xl"
@@ -221,7 +237,7 @@ function App() {
                         >
                           About Me
                           <div
-                            className={`absolute rounded-3xl bottom-0 left-0 w-0 h-[2px] dark:bg-[#e7e6e6] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute rounded-3xl bottom-0 left-0 w-0 h-[2px] dark:bg-[#e7e6e6] lg:h-[3px] bg-[#18272F] transition-all duration-700 group-hover:w-full ${
                               activeSection === "about" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -234,7 +250,7 @@ function App() {
                         >
                           Projects
                           <div
-                            className={`absolute rounded-3xl dark:bg-[#e7e6e6] bottom-0 left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute rounded-3xl dark:bg-[#e7e6e6] bottom-0 left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-700 group-hover:w-full ${
                               activeSection === "projects" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -247,7 +263,7 @@ function App() {
                         >
                           Technical Skills
                           <div
-                            className={`absolute bottom-0 rounded-3xl dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute bottom-0 rounded-3xl dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-700 group-hover:w-full ${
                               activeSection === "skills" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -260,7 +276,7 @@ function App() {
                         >
                           SDG
                           <div
-                            className={`absolute bottom-0 rounded-3xl dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-500 group-hover:w-full ${
+                            className={`absolute bottom-0 rounded-3xl dark:bg-[#e7e6e6] left-0 w-0 h-[2px] lg:h-[3px] bg-[#18272F] transition-all duration-700 group-hover:w-full ${
                               activeSection === "sdg" ? "w-full" : "w-0"
                             }`}
                           ></div>
@@ -272,12 +288,12 @@ function App() {
 
                 {/* content section */}
                 <div
-                  className={`flex items-center ${fadeExit ? "animate__fadeOut" : "animate__fadeIn"}   w-full  animate__animated `}
+                  className={`flex items-center  ${fadeExit ? "animate__fadeOut" : "animate__fadeIn"}   w-full  animate__animated `}
                 >
                   {/* About Me */}
-                  <section className="w-[280px] ml-auto  text-[0.8rem] lg:text-[1rem]">
+                  <section className="w-[280px] ml-auto   text-[0.8rem] lg:text-[1rem]">
                     {activeSection === "about" && (
-                      <div className={`flex flex-col lg:pt-[10rem] lg:gap-4 gap-3 dark:text-gray-200     `}>
+                      <div className={`flex flex-col transition-all ease-out duration-700 lg:pt-[10rem] lg:gap-4 gap-3 dark:text-gray-200     `}>
                         <p>
                           Hello! I’m Angelo, a passionate web developer with a
                           focus on creating responsive, user-friendly, and
@@ -302,7 +318,7 @@ function App() {
 
                     {/* Projects */}
                     {activeSection === "projects" && (
-                      <div className=" lg:pt-[5rem] lg:-ml-[50px] ">
+                      <div className="transition-all ease-out duration-700 lg:pt-[5rem] lg:-ml-[50px] ">
                         <div className="">
                           <HorizontalScrollCards />
                         </div>
@@ -311,7 +327,7 @@ function App() {
 
                     {/* Technical Skills */}
                     {activeSection === "skills" && (
-                      <div className="lg:pt-[11rem]">
+                      <div className="lg:pt-[11rem] transition-all ease-out duration-700">
                         <Skills />
                       </div>
                     )}
@@ -324,7 +340,7 @@ function App() {
 
             {/* sdg section */}
             <section
-              className={`px-[24px] sdg-section animate__animated ${handleBackToHome ? "animate__fadeIn" : "animate__fadeOut"}  ${sdgSection ? "block" : "hidden"}`}
+              className={`px-[24px] sdg-section animate__animated ${!fadeSdgExit ? "animate__fadeIn" : "animate__fadeOut"}  ${sdgSection ? "block" : "hidden"}`}
             >
               <Button handleBackToHome={handleBackToHome} />
               <Sdg />

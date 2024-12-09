@@ -7,12 +7,13 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  transition: background-color 0.15s ease, color 0.15s ease;
+ 
 }
 
-.bg-transition {
-  transition: background-image 0.2s ease, background-color 0.2s ease;
+main {
+  transition: background-color 0.7s ease-out; 
 }
+
 
 .animate__fadeOutHalfSecond{
   animation: fadeOut 1s ease forwards;
@@ -38,7 +39,9 @@
 
 .my-name{
   font-family: "Kanit", sans-serif;
-  font-weight: 100;
+  font-weight: 200;
+  transform: scaleY(1.4);
+  padding-bottom: 5px;
 }
 
 .page-heading__panel {
