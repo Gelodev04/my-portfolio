@@ -109,7 +109,7 @@ function App() {
       <div className={`relative transition-all ease-out duration-700  select-none ${!isDarkMode ? "dark" : ""} `}
       onMouseMove={handleMouseMove}
             style={{
-              background: `radial-gradient(circle at ${gradientPosition.x}% ${gradientPosition.y}%, ${!isDarkMode ? `#383838 2%, #171717 40%` : `#C7C7C7 2%, #E8E8E8 40%`})`,
+              background: `radial-gradient(circle at ${gradientPosition.x}% ${gradientPosition.y}%, ${!isDarkMode ? `#383838 2%, #171717 70%` : `#C7C7C7 2%, #E8E8E8 70%`})`,
               transition: "background 10s ease-out",
 
             

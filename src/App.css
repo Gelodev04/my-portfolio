@@ -1,7 +1,4 @@
-@font-face{
-  font-family: "Montral";
-  src: url('./assets/NeueMontreal-Regular.otf') format('opentype');
-}
+
 
 *, body{
   box-sizing: border-box;
