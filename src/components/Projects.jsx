@@ -43,7 +43,7 @@ const HorizontalScrollCards = () => {
             <img
               className="object-cover w-full  h-full rounded-md transform transition-transform duration-300 ease-in-out group-hover:scale-110"
               src={card.img}
-              alt=""
+              alt="projectimage"
             />
             </div>
            <div className="flex flex-col lg:gap-1">
