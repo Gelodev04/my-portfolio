@@ -49,11 +49,11 @@ function App() {
   useEffect(() => {
     const fadeOutTimer = setTimeout(() => {
       setFadeOutIntro(true);
-    }, 1500);
+    }, 2000);
 
     const hideIntroTimer = setTimeout(() => {
       setShowIntro(false);
-    }, 2100);
+    }, 2500);
 
     return () => {
       clearTimeout(fadeOutTimer);
